@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Todo List</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-[#0f172a] flex items-center justify-center min-h-screen p-4">
+
+  <main class="bg-slate-700 rounded-xl shadow-[0_0_40px_#222a5c] max-w-3xl w-full p-7">
+    <h1 class="text-center text-3xl font-bold text-[#a8b1e7] pb-3 select-none">Todo List</h1>
+
+    <form id="todoForm" class="flex gap-2 mb-4">
+      <input id="taskInput" 
+             type="text" 
+             placeholder="Add a todo . . ." 
+             class="flex-grow rounded-md border border-[#7b89f4] bg-[#151b3a] px-4 py-2 text-[#c0cbf9] placeholder:text-[#6a76bd] focus:outline-none focus:ring-2 focus:ring-[#7b89f4] transition-colors" 
+             required
+      />
+      <input id="dateInput" 
+             type="date" 
+             aria-label="Due date" 
+             class="w-40 rounded-md border border-[#7b89f4] bg-[#151b3a] px-4 py-2 text-[#c0cbf9] placeholder:text-[#6a76bd] focus:outline-none focus:ring-2 focus:ring-[#7b89f4] transition-colors"
+             required
+      />
+      <button type="submit" aria-label="Add todo item" 
+              class="bg-[#7b89f4] hover:bg-[#5b67d1] rounded-md w-12 flex  justify-center text-3xl font-bold text-[#0f172a] select-none transition-colors"
+      >+</button>
+    </form>
+
+    <div class="flex justify-between items-center mb-2">
+      <div class="relative">
+        <button id="filterBtn" class="bg-[#1c2445] text-[#a8b1e7] font-bold uppercase px-6 py-3 rounded-md select-none hover:bg-[#2a3571] transition-colors">Filter</button>
+        <div id="filterDropdown" class="absolute top-full left-0 mt-2 bg-[#1c2445] rounded-md shadow-lg border border-[#7b89f4] min-w-[120px] z-50" style="display: none;">
+          <button class="filter-option block w-full text-left px-4 py-2 text-[#a8b1e7] hover:bg-[#2a3571] transition-colors rounded-t-md" data-filter="all">All</button>
+          <button class="filter-option block w-full text-left px-4 py-2 text-[#a8b1e7] hover:bg-[#2a3571] transition-colors" data-filter="pending">Pending</button>
+          <button class="filter-option block w-full text-left px-4 py-2 text-[#a8b1e7] hover:bg-[#2a3571] transition-colors rounded-b-md" data-filter="completed">Completed</button>
+        </div>
+      </div>
+      <button id="deleteAllBtn" class="bg-[#7b89f4] text-[#0f172a] font-bold uppercase px-6 py-3 rounded-md select-none hover:bg-[#5b67d1] transition-colors">Delete All</button>
+    </div>
+
+    <section class="bg-[#151b3a] rounded-lg overflow-hidden">
+      <table class="table w-full text-[#a8b1e7] text-left text-sm font-semibold border-spacing-y-2">
+        <thead class="bg-slate-950">
+          <tr>
+            <th class="px-5 py-3">Task</th>
+            <th class="px-5 py-3">Due Date</th>
+            <th class="px-5 py-3">Status</th>
+            <th class="px-5 py-3">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="tasksTableBody">
+          <tr>
+            <td colspan="4" class="text-center text-[#b0bbd9] py-8 select-none">No task found</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </main>
+<script src="/JS/Index.js"></script>
+</body>
+</html>
